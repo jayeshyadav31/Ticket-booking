@@ -7,20 +7,24 @@ function Seat({Number,select,disabled,setSelect}) {
         {Number.map((number) => (
           <Button
             key={number}
-            marginTop={"8px"}
-            marginLeft={"6px"}
-            width= '10px'
-            height= '20px'
+            marginTop={"6px"}
+            marginLeft={"4px"}
+            width= '20px'
+            height= '30px'
             color='white'
-            borderTopRightRadius="10px" 
-            borderTopLeftRadius="10px"
             isDisabled={disabled?.includes(number)}
+           
             backgroundColor={
                 (disabled && disabled.includes(number))
                   ? 'gray' // or any other color for disabled seats
                   : select.includes(number)
                   ? 'red'
                   : 'green'
+              }
+              _hover={
+                disabled && disabled.includes(number)
+                  ? { backgroundColor: 'gray' }
+                  : { backgroundColor: 'green.500' }
               }
             onClick={() => {
                 setSelect((prevSelect) => {

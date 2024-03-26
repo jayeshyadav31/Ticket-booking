@@ -55,7 +55,7 @@ function SignupPage() {
         }
     }
   return (
-    <Flex align={"center"} justify={"center"}>
+    <Flex align={"center"} justify={"center"} textColor={"black"}>
         <Stack py={12} px={6} spacing={8} mx={"auto"} maxW={"lg"}>
             <Stack align={"center"}>
                 <Heading textAlign={"center"} size={"xl"}> Sign up</Heading>
@@ -64,7 +64,11 @@ function SignupPage() {
                 <Stack spacing={4}>
                             <FormControl isRequired>
                                 <FormLabel>Name:</FormLabel>
-                                <Input type='text' value={input.name} onChange={(e)=>{setInput({...input,name:e.target.value})}}></Input>
+                                <Input type='text' value={input.name} 
+                                borderColor={'black'}
+                                onChange={(e)=>{setInput({...input,name:e.target.value})}}
+                                _hover={{borderColor:'gray.800'}}
+                                ></Input>
                             </FormControl>
                     <FormControl isRequired>
 							<FormLabel>Email address</FormLabel>
@@ -72,6 +76,8 @@ function SignupPage() {
 								type='email'
 								onChange={(e) => setInput({ ...input, email: e.target.value })}
 								value={input.email}
+                                borderColor={"black"}
+                                _hover={{borderColor:'gray.800'}}
 							/>
 						</FormControl>
 						<FormControl isRequired>
@@ -81,10 +87,13 @@ function SignupPage() {
 									type={showPassword ? "text" : "password"}
 									onChange={(e) => setInput({ ...input, password: e.target.value })}
 									value={input.password}
+                                    borderColor={"black"}
+                                    _hover={{borderColor:'gray.800'}}
 								/>
 								<InputRightElement h={"full"}>
 									<Button
 										variant={"ghost"}
+                                        backgroundColor={"gray.900"}
 										onClick={() => setShowPassword((showPassword) => !showPassword)}
 									>
 										{showPassword ? <ViewIcon /> : <ViewOffIcon />}
@@ -96,8 +105,9 @@ function SignupPage() {
                             <Button
                             loadingText="submitting"
                             size={"lg"}
+                            backgroundColor={'#008DDA'}
                             _hover={{
-                                bg: useColorModeValue("gray.700", "gray.800"),
+                                bg: '#41C9E2',
                             }}
                             color={"white"}
                             onClick={handleSignUp}

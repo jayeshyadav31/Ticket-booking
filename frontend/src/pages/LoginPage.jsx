@@ -65,7 +65,7 @@ function LoginPage() {
 		}
 	};
   return (
-    <Flex align={"center"} justify={"center"}>
+    <Flex align={"center"} justify={"center"} textColor={"black"}>
         <Stack py={12} px={6} spacing={8} mx={"auto"} maxW={"lg"}>
             <Stack align={"center"}>
                 <Heading textAlign={"center"} size={"xl"}> Login</Heading>
@@ -73,10 +73,11 @@ function LoginPage() {
             <Box>
                 <Stack spacing={4}>
                         <Box>
-                            <FormControl isRequired>
+                            <FormControl isRequired >
                                 <FormLabel>Name:</FormLabel>
-                                <Input type='text' 
+                                <Input type='text' borderColor={"black"}
                                 value={input.name}
+                                _hover={{borderColor:'gray.800'}}
                                 onChange={(e)=>{setInput({...input,name:e.target.value})}}
                                 />
                             </FormControl>
@@ -85,14 +86,17 @@ function LoginPage() {
 							<FormLabel>Password</FormLabel>
 							<InputGroup>
 								<Input
-									type={showPassword ? "text" : "password"}
+									type={showPassword ? "text" : "password"} borderColor={"black"}
 									onChange={(e) => setInput({ ...input, password: e.target.value })}
 									value={input.password}
+                                    _hover={{borderColor:'gray.800'}}
 								/>
 								<InputRightElement h={"full"}>
 									<Button
 										variant={"ghost"}
+                                        backgroundColor={'gray.900'}
 										onClick={() => setShowPassword((showPassword) => !showPassword)}
+                                        _hover={{backgroundColor:'gray.800'}}
 									>
 										{showPassword ? <ViewIcon /> : <ViewOffIcon />}
 									</Button>
@@ -102,9 +106,10 @@ function LoginPage() {
                         <Stack>
                             <Button
                             loadingText="logging In"
+                            backgroundColor={'#008DDA'}
                             size={"lg"}
                             _hover={{
-                                bg: useColorModeValue("gray.700", "gray.800"),
+                                bg: '#41C9E2',
                             }}
                             color={"white"}
                             onClick={handleLogin}

@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const ticketSchema=mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
     ticketBy:{
         type:mongoose.SchemaTypes.ObjectId,
         ref:"User",

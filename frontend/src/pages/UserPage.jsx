@@ -4,6 +4,7 @@ import { Flex, Spinner, Heading, Box, Card, Image, Stack, CardBody, Text, CardFo
 import useGetUserProfile from '../hooks/useGetUserProfile';
 import { useNavigate, useParams } from 'react-router-dom';
 import Ticket from '../components/Ticket';
+import Headers from '../components/Headers';
 
 function Userpage() {
   const { loading, user } = useGetUserProfile();
@@ -25,12 +26,12 @@ const navigate=useNavigate();
           const sortedTickets = data.sort((a, b) => {
             return new Date(b.createdAt) - new Date(a.createdAt);
           });
-
           setTickets(sortedTickets);
         }
       } catch (error) {
         console.log(`Error fetching tickets: ${error}`);
       }
+      console.log(tickets);;
     };
 
     fetchTickets();
@@ -46,6 +47,7 @@ const navigate=useNavigate();
   }
   return (
     <>
+    <Headers/>
       <UserHeader user={user}/>
       <Box backgroundColor={"white"} borderRadius={"6px"} width="540px" margin={"auto"}>
         <Heading marginTop={"40px"} size={"md"} color={"black"} margin={"30px"}>Past Orders :</Heading>
@@ -60,7 +62,11 @@ const navigate=useNavigate();
               overflow='hidden'
               variant='outline'
               margin={"20px"} 
+              backgroundColor={'white'}
+              textColor={"black"}
               marginBottom={"30px"}
+              borderRadius={"2px"}
+              borderColor={"gray.400"}
             >
               <Image
                 objectFit='cover'
@@ -70,7 +76,7 @@ const navigate=useNavigate();
               />
               <Stack>
                 <CardBody>
-                  <Heading size='md'>{ticket.name}</Heading>
+                  <Heading size='md' textColor={'black'}>{ticket?.name}</Heading>
                   <Text py='2'>Date: {ticket.date}  </Text>
                   <Text>Time: {ticket.time}</Text>
                   <Text>No of tickets: {ticket.seats.length}</Text>

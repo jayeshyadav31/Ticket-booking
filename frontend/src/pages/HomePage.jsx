@@ -4,6 +4,7 @@ import userShowToast from '../hooks/useShowToast'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import movieAtom from '../Atoms/MovieAtom'
 import { useNavigate } from 'react-router-dom'
+import Headers from '../components/Headers'
 
 function HomePage() {
     const [movies,setMovies]=useState([])
@@ -29,19 +30,27 @@ function HomePage() {
             getMoives();
         },[setMovies])
   return (
+    <>
+     <Headers />
     <VStack>
     {
         movies?.map((movie)=>(
-            <Flex padding={"10px"}   justifyContent={"center"} width={"600px"} key={movie._id} >
-            <VStack>
+            <Flex padding={"10px"} justifyContent={"center"} width="620px" key={movie._id} >
+            <VStack >
             <Card
             marginTop={"10px"}
+            textColor={"black"}
+            bg={"white"}
+            borderWidth={"3px"}
+            borderColor={"gray.700"}
             direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
             variant='outline'
+            shadow={'revert'}
           >
             <Image
               objectFit='cover'
+              borderRadius={"4px"}
               maxW={{ base: '100%', sm: '200px' }}
               src={movie.image}
               alt={movie.name}
@@ -79,7 +88,7 @@ function HomePage() {
         ))
     }
     </VStack>
-   
+   </>
   )
 }
 

@@ -30,7 +30,7 @@ function LogoutButton() {
 		}
 	};
   return (
-    <Button marginLeft={"10px"} p={2} size={"md"} onClick={handleLogout}>
+    <Button marginLeft={"10px"} p={2} size={"md"} onClick={handleLogout} color={"gray.500"}>
 			<FiLogOut size={20} />
 		</Button>
   )

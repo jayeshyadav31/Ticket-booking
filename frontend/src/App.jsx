@@ -27,7 +27,6 @@ function App() {
 
   return (
     <Container maxWidth="1300px">
-      <Headers />
       <Routes>
         <Route path="/" element={user ? <HomePage /> : <Navigate to="/auth" />} />
         <Route path="/auth" element={!user ? <AuthPage /> : <Navigate to="/" />} />

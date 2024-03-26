@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import useShowToast from '../hooks/useShowToast';
 import seatAtom from '../Atoms/seatAtom';
 import Seat from '../components/Seat';
+import MovieHeader from '../components/MovieHeader';
 
 function SeatBookingPage() {
   const Number1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -60,13 +61,16 @@ function SeatBookingPage() {
 
 
   return (
-    <Stack backgroundColor={'gray.800'} height={'540px'}>
+    <Stack backgroundColor={'white'} height={'auto'} textColor={"black"}>
+      <MovieHeader movie={movie}/>
         <Flex justifyItems={'flex-start'}>
             
             <VStack width={"540px"}>
             <Box height={"30px"} marginTop={"30px"} borderRadius={"8px"} width={"200px"}backgroundColor={"white"}
             justifyContent={"center"} marginBottom={"30px"} >
-                <Text align={"center"} color={'black'} fontWeight={"bold"} >SCREEN</Text>
+                <Text align={"center"} color={'black'} fontWeight={"bold"} 
+                backgroundColor={"black"} textColor={'white'} borderRadius={'6px'}
+                >SCREEN</Text>
             </Box>
                 <Seat Number={Number1} select={select} setSelect={setSelect} disabled={disabled}></Seat>
                 <Seat Number={Number2} select={select} setSelect={setSelect} disabled={disabled}></Seat>
@@ -78,7 +82,7 @@ function SeatBookingPage() {
                 <Seat Number={Number8} select={select} setSelect={setSelect} disabled={disabled}></Seat>
                 <Flex>
             <Flex alignItems={"center"} marginRight={"20px"}>
-                    <Box borderRadius={"20px"} backgroundColor={"gray"}  width={'15px'} height={"15px"} marginRight={"10px"}/>
+                    <Box borderRadius={"20px"} backgroundColor={"gray.300"}  width={'15px'} height={"15px"} marginRight={"10px"}/>
                     <Text color={"dark"}> Booked Seats</Text>
                 </Flex>
                 <Flex alignItems={"center"} marginRight={"15px"}>
@@ -91,7 +95,7 @@ function SeatBookingPage() {
                 </Flex>
                 </Flex>
             </VStack>
-            <VStack width={"540px"}>
+            <VStack width={"540px"} justifyContent={'center'}>
             <Card
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
@@ -99,7 +103,7 @@ function SeatBookingPage() {
   marginTop={"20px"}
 >
 
-  <Stack>
+  <Stack backgroundColor={"white"} textColor={"black"} borderWidth={"2px"} borderColor={"gray.600"}>
   <Image
     objectFit='cover'
     width={"350px"}

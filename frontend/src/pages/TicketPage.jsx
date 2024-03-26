@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Box, Button, Divider, Flex, HStack, Heading, Spacer, Text, VStack } from '@chakra-ui/react';
 import useShowToast from '../hooks/useShowToast';
 import Barcode from "react-barcode";
+import Headers from '../components/Headers';
 function TicketPage() {
     const { id } = useParams();
     const [ticket, setTicket] = useState(null);
@@ -32,6 +33,8 @@ function TicketPage() {
           window.print(); // This will trigger the browser's print dialog
         }
     return (
+        <>
+        <Headers/>
         <Box textAlign="center" margin="auto" justifyContent={'space-between'}>
             <Flex justifyContent={"space-between"}>
             <Text>Thank You for Using Event Ease</Text>
@@ -72,10 +75,10 @@ function TicketPage() {
                     <VStack width={"10px"}>
                     </VStack >
                     <VStack  align="start" spacing={4} marginLeft={4} marginRight={4} width={"340px"} marginTop={"160px"}>
-                        <Text>Amount:  {ticket?.totalAmount/1.1}</Text>
-                        <Text>Conveneince Fees:   {ticket?.totalAmount-ticket?.totalAmount/1.1}</Text>
+                        <Text>Amount:  {Math.ceil(ticket?.totalAmount/1.1)}</Text>
+                        <Text>Conveneince Fees:   {Math.ceil(ticket?.totalAmount-ticket?.totalAmount/1.1)}</Text>
                         <Box backgroundColor={"Black"} height={"3px"} width={"full"}></Box>
-                        <Text>Total Amount  :{ticket?.totalAmount}</Text>
+                        <Text>Total Amount  :{Math.ceil(ticket?.totalAmount)}</Text>
                         <Barcode value={ticket?._id} width={1} height={50}/>
                     </VStack>                
                 </Flex>
@@ -87,6 +90,7 @@ function TicketPage() {
             </Box>
             
         </Box>
+        </>
     );
 }
 

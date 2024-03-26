@@ -4,7 +4,6 @@ import User from "../model/UserModel.js"
 
 const createTicket=async(req,res)=>{
     try {
-        // console.log(req.body);
         const {name,ticketBy,movieId,seats,parkingSlots,location,image,totalAmount,date,time}=req.body
         const user=await User.findOne({_id:ticketBy});
         

@@ -14,6 +14,7 @@ import {
   IconButton,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import Headers from '../components/Headers'
 import { FaPhoneAlt, FaUserAlt, FaLocationArrow } from "react-icons/fa";
 import { MdEmail, MdSend } from "react-icons/md";
 import { FaLinkedin, FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
@@ -69,7 +70,9 @@ function Contact() {
   };
 
   return (
-    <Box className="parent py-24 mt-4" backgroundColor={"gray.800"} borderRadius={"6px"}>
+    <>
+    <Headers />
+    <Box className="parent py-24 mt-4" backgroundColor={"white"} textColor={"black"} borderRadius={"6px"}>
       <Heading size="md" textAlign="center" paddingTop={"5px"}>
         Feel Free To Contact Us
       </Heading>
@@ -77,7 +80,7 @@ function Contact() {
         {/* Contact Form */}
         <Box>
           <Heading size="md" mb={4} color={"gray.500"}>
-            Get In <Text as="span" color={"white"}>Touch</Text>
+            Get In <Text as="span" color={"black"}>Touch</Text>
           </Heading>
           <Box>
             <Flex>
@@ -86,7 +89,9 @@ function Contact() {
                 <Input
                   type="text"
                   placeholder="Name"
+                  borderColor={"black"}
                   onChange={(e) => setData({ ...data, name: e.target.value })}
+                  _hover={{borderColor:'gray.900'}}
                   value={data.name}
                 />
               </FormControl>
@@ -94,10 +99,12 @@ function Contact() {
                 <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
                   type="email"
+                  borderColor={"black"}
                   name="email"
                   placeholder="Email"
                   onChange={(e) => setData({ ...data, email: e.target.value })}
                   value={data.email}
+                  _hover={{borderColor:'gray.900'}}
                 />
               </FormControl>
             </Flex>
@@ -108,6 +115,8 @@ function Contact() {
                 id="subject"
                 name="subject"
                 placeholder="Subject"
+                borderColor={"black"}
+                _hover={{borderColor:'gray.900'}}
                 onChange={(e) => setData({ ...data, subject: e.target.value })}
                 value={data.subject}
               />
@@ -118,12 +127,15 @@ function Contact() {
                 id="message"
                 name="message"
                 placeholder="Message"
+                borderColor={"black"}
                 rows={5}
+                _hover={{borderColor:'gray.900'}}
                 onChange={(e) => setData({ ...data, message: e.target.value })}
                 value={data.message}
               />
             </FormControl>
-            <Button type="submit" rightIcon={<MdSend />} marginBottom={"40px"} onClick={handleSend}>
+            <Button type="submit" rightIcon={<MdSend />} marginBottom={"40px"} 
+            _hover={{bg:'#41C9E2'}} onClick={handleSend} backgroundColor={'#008DDA'}>
               Send Message
             </Button>
           </Box>
@@ -165,6 +177,7 @@ function Contact() {
         </Box>
       </Grid>
     </Box>
+    </>
   );
 }
 

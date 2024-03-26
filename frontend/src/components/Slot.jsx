@@ -15,11 +15,12 @@ function Slot({ Number, select, disabled, setSelect }) {
           isDisabled={disabled && disabled.includes(number)} // Check if disabled is defined before accessing its methods
           backgroundColor={
             disabled && disabled.includes(number)
-              ? 'gray.300' // Use a different color scheme for disabled slots
+              ? 'gray.500' // Use a different color scheme for disabled slots
               : select.includes(number)
-              ? 'red.300'
-              : 'green.300'
+              ? 'red'
+              : 'green'
           }
+          _hover={(disabled && disabled.includes(number)?{bg:"gray"}:{bg:"green.500"})}
           onClick={() => {
             setSelect((prevSelect) => {
               if (!prevSelect.includes(number)) {

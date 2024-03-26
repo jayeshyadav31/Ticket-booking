@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil'
 import useShowToast from '../hooks/useShowToast'
 import { useNavigate, useParams } from 'react-router-dom'
 import seatAtom from '../Atoms/seatAtom'
+import MovieHeader from '../components/MovieHeader'
 
 function SlotBookingPage() {
     const [select,setSelect]=useState([])
@@ -60,7 +61,9 @@ function SlotBookingPage() {
     //    console.log(select);  // This will reflect the updated state
     //  }, [select]);
   return (
-    <Box backgroundColor={"gray.800"} width={"full"} height={"800px"}>
+    <>
+    <MovieHeader movie={movie}/>
+    <Box backgroundColor={"white.800"} textColor={'black'} width={"full"} height={"800px"}>
         <Heading marginLeft={"330px"} fontSize={"2xl"} alignContent={"center"} marginTop={"10px"}> Select Your Parking Slot</Heading>
         <HStack width={"600px"} height={"540px"} marginLeft={"60px"} marginTop={"50px"}>
                 <Box>
@@ -118,12 +121,14 @@ function SlotBookingPage() {
                 <Text>T</Text>
                 </VStack>
                 </Box>
-                <VStack marginLeft={"100px"}>
-                <Card maxW='sm' minWidth={"300px"}>
+                <VStack marginLeft={"100px"} >
+                <Card maxW='sm' minWidth={"300px"} bg={'white'} borderRadius={"10px"}
+                 borderWidth={"2px"} borderColor={"gray.700"} textColor={"black"} >
                 <Image
                  src='https://res.cloudinary.com/dyylkrsak/image/upload/v1709660152/photo-1506521781263-d8422e82f27a_pc6l9z.avif'
                  alt='parking'
-                 borderRadius='lg'
+                 overflow='hidden'
+                 borderRadius={'8px'}
                />
   <CardBody>
     <Stack mt='6' spacing='3' >
@@ -157,6 +162,7 @@ function SlotBookingPage() {
 </VStack>
 </HStack>
     </Box>
+    </>
   )
 }
 

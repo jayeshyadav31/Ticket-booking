@@ -1,4 +1,4 @@
-
+import MovieHeader from "../components/MovieHeader";
 import {  useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -81,12 +81,15 @@ const PaymentPage = () => {
   
 
   return (
+    <>
+    <MovieHeader movie={movie}/>
     <Box
       className="rounded-2xl booker border-2"
       p={4}
       mt={4}
       mb={8}
       mx="auto"
+      textColor={'black'}
       width="90%"
       maxWidth="600px"
     >
@@ -117,10 +120,11 @@ const PaymentPage = () => {
 
       <Button
         mt={4}
-        bgColor="#ef4444"
+        bgColor="#7AA2E3"
         color="white"
         fontSize="lg"
         py={2}
+        _hover={{bg:'#008DDA'}}
         borderRadius="xl"
         isLoading={isProceeding}
         onClick={() => booker()}
@@ -128,6 +132,7 @@ const PaymentPage = () => {
         {isProceeding ? "Processing..." : "Procceed Now"}
       </Button>
     </Box>
+    </>
   );
 };
 
