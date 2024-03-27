@@ -38,13 +38,7 @@ function SeatBookingPage() {
     };
     getMovie();
   }, [id, showToast]);
-
-  useEffect(() => {
-    if (select.length > 10) {
-      showToast("Message", "You can't book more than 10 tickets", "message");
-    }
-  }, [select.length, showToast]);
-
+  
   const handleProceed = async () => {
     if (select.length > 10) {
       showToast('Warning', "You can't book more than 10 tickets", 'warning');
