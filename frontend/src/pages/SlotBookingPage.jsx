@@ -143,7 +143,7 @@ function SlotBookingPage() {
 ))}
       </Flex>
       <Text color='blue.600' fontSize='2xl'>
-       Amount: {select.length*movie?.parkingAmount}rs
+       Amount: {select.length*movie?.parkingAmount}
       </Text>
     </Stack>
   </CardBody>

@@ -44,8 +44,8 @@ function LoginPage() {
             // console.log("success");
             toast({
                 title:"Success",
-                description:"Logged in successfully",
-               duration:5000,
+                description:"Logged In Successfully",
+               duration:2000,
                status:"success",
                isClosable:true
             })
@@ -55,11 +55,10 @@ function LoginPage() {
             toast({
                 title:"Error",
                 description:error,
-                duration:5000,
+                duration:2000,
                 status:"error",
                 isClosable:true
              });
-			// showToast("Error", error, "error");
 		} finally {
 			setLoading(false);
 		}

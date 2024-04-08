@@ -22,7 +22,6 @@ const createMovie = async (req, res) => {
             date: date,
             time:time
         });
-
         res.status(201).json(newMovie);
     } catch (error) {
         console.error(`Error in creating movie: ${error.message}`);
@@ -37,7 +36,7 @@ const getMovies = async (req, res) => {
         if (movies.length === 0) {
             return res.status(404).json({ message: "No Movies found" });
         }
-
+        
         res.status(200).json(movies);
     } catch (error) {
         console.error(`Error in getting movies: ${error.message}`);

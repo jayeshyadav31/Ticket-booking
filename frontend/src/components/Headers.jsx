@@ -26,10 +26,10 @@ function Headers() {
   return (
     <Flex   
     justifyContent="space-between"
-    mb="6"
+    mb="10"
     alignItems={"center"}
     borderRadius="16px"
-    mt={6}
+    mt={3}
     textColor={"black"}
     borderColor={"gray"}
     borderWidth={"2px"}
@@ -45,7 +45,7 @@ function Headers() {
         { user &&
         <>
 <Menu >
-  <MenuButton as={Button} rightIcon={<Avatar size="sm" name="User" />} variant="outline" 
+  <MenuButton as={Button} rightIcon={<Avatar size="sm" name={user?.name} />} variant="outline" 
   textColor="gray.500" borderWidth={"2px"} borderColor={"gray.300"}>
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 30 30">
       <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>

@@ -40,17 +40,13 @@ function SeatBookingPage() {
   }, [id, showToast]);
   
   const handleProceed = async () => {
-    if (select.length > 10) {
-      showToast('Warning', "You can't book more than 10 tickets", 'warning');
-    } else {
       if (select.length === 0) {
-        showToast('message', 'Select At Least One Seat', 'warning');
+        showToast('Alert', 'Select At Least One Seat', 'warning');
         return 
       }
       localStorage.setItem('seats', JSON.stringify(select));
       setSeats(select);
       navigate(`/slotBooking/${movie._id}`);
-    }
   };
 
 
@@ -59,7 +55,7 @@ function SeatBookingPage() {
       <MovieHeader movie={movie}/>
         <Flex justifyItems={'flex-start'}>
             
-            <VStack width={"540px"}>
+            <VStack width={"540px"} marginLeft={"100px"}>
             <Box height={"30px"} marginTop={"30px"} borderRadius={"8px"} width={"200px"}backgroundColor={"white"}
             justifyContent={"center"} marginBottom={"30px"} >
                 <Text align={"center"} color={'black'} fontWeight={"bold"} 
@@ -111,11 +107,11 @@ function SeatBookingPage() {
       <Text py='2'>
         Number of seats : {select.length}
       </Text>
-      <Flex >
+      <Flex wordBreak={"break-word"}>
       <Text>Seat Number : </Text>
       {select.map((seat,index)=>(<Text key={index}>{seat},</Text>))}
       </Flex>
-      <Text marginTop={"8px"}>Amount: {movie?.amount*select.length}</Text>
+      <Text marginTop={"8px"}>Amount: {seats?.length?movie?.amount*select.length:0}</Text>
     </CardBody>
 
     <CardFooter>

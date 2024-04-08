@@ -8,7 +8,7 @@ function Slot({ Number, select, disabled, setSelect }) {
     const isAlreadySelected=select.includes(number);
     const exceedsLimit=!isAlreadySelected && select.length>=2
     if(exceedsLimit){
-      showToast("message","You Can Only Atmost 2 Seats","error");
+      showToast("Alert","You Can't Select More Than 2 Seats","error");
       return 
     }
     setSelect(prevSelect => {

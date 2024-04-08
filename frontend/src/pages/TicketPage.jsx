@@ -42,15 +42,16 @@ function TicketPage() {
               Print Ticket
             </Button>
             </Flex>
-            <Box backgroundColor="#FFEBD8" textColor="black" borderRadius="6px" margin="auto" marginTop="30px" borderTop="dotted">
+            <Box backgroundColor="#FFEBD8" textColor="black" borderRadius="6px" margin="auto" marginTop="30px" 
+            borderTop="dotted" width={'-moz-fit-content'}>
                 <Text>Dear Customer, your Ticket has been confirmed!</Text>
                 <Flex>
-                    <VStack align="start" spacing={4} marginLeft={4} marginRight={4}>
+                    <VStack align="start" spacing={4}  marginLeft={4} marginRight={4}>
                         <Flex backgroundColor="#F6F193"  >
                             <Heading  size={"md"}  padding="3px" borderRadius="6px">EVENT EASE</Heading>
                         </Flex>
                         <Heading size={"md"} alignItems={"start"} > {ticket?.name}</Heading>
-                        <Text>{ticket?.location}</Text>
+                        <Text wordBreak={"break-word"}>{ticket?.location}</Text>
                         <Text>Ticket ID: {ticket?._id}</Text>
                         <Text>Show Time: {ticket?.time}</Text>
                         <Text>Date Of Show: {ticket?.date}</Text>
@@ -72,7 +73,7 @@ function TicketPage() {
                         </Flex>
                         <Text>Booking Time: {ticket ? formatDateTime(ticket) : ''}</Text>
                     </VStack>
-                    <VStack width={"10px"}>
+                    <VStack width={"100px"}>
                     </VStack >
                     <VStack  align="start" spacing={4} marginLeft={4} marginRight={4} width={"340px"} marginTop={"160px"}>
                         <Text>Amount:  {Math.ceil(ticket?.totalAmount/1.1)}</Text>
@@ -84,7 +85,7 @@ function TicketPage() {
                 </Flex>
                 <Box marginTop={"20px"}>
                 <Text>Thank you for choosing Event Ease. Enjoy the show</Text>
-                <Text>Best regards</Text>
+                <Text>Best Regards</Text>
                 <Text>EVENT EASE</Text>
             </Box>
             </Box>
