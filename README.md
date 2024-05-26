@@ -4,7 +4,7 @@
   This project streamlines the event-going experience by offering a user-friendly platform for booking tickets and securing corresponding parking slots.
   It seamlessly integrates both processes, saving users time and ensuring a convenient experience.
 
-  Technologies:
+ # Technologies:
   Frontend: React.js, Chakra ui, Recoil, React-router-dom, Toast
   Backend: Node.js, Express.js
   Database: MongoDB
