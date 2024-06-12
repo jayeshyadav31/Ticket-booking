@@ -23,7 +23,7 @@
    # Customer feedback:
      EmailJS integration for sending emails to give feedbacks.
    # booked Tickets:
-     You can the booked tickets and also download it 
+     You can see the booked tickets and also download it 
    # Update Profile
      Can update the Name, PhoneNumber, Email, Password ,ProfilePic etc
 
