@@ -100,7 +100,7 @@ function HomePage() {
       </Flex>
       <Heading size="md" textColor="black">Recommended Events</Heading>
       <Flex flexWrap="wrap" justifyContent="center">
-        {movies.map((movie) => (
+        {movies && movies.map((movie) => (
           <MovieCard key={movie._id} movie={movie} setMovie={setMovie} navigate={navigate} />
         ))}
       </Flex>

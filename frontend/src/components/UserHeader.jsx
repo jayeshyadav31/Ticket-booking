@@ -78,7 +78,7 @@ function UserHeader({ user }) {
         </Flex>      
         </Flex>
         <Link as={routerLink} to={'/update'}  >
-            <Button size="sm" marginTop={"6px"} bgColor={"gray.800"} _hover={{bgColor:"gray.600"}}>update Profile</Button></Link>
+            <Button size="sm" marginTop={"6px"} bgColor={"gray.600"} _hover={{bgColor:"gray.400"}}>update Profile</Button></Link>
       </Box>
     </VStack>
   );

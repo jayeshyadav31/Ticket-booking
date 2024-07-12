@@ -4,8 +4,8 @@ import User from "../model/UserModel.js"
 
 const createTicket=async(req,res)=>{
     try {
-        const {name,ticketBy,movieId,seats,parkingSlots,location,image,totalAmount,date,time}=req.body
-        const user=await User.findOne({_id:ticketBy});
+        const {name,movieId,seats,parkingSlots,location,image,totalAmount,date,time}=req.body
+        const user=await User.findById(req.user._id);
         
         if(!user){
             res.status(404).json({"error":"user Not Found"})
@@ -17,7 +17,7 @@ const createTicket=async(req,res)=>{
        
         const ticket=await Ticket.create({
             name,
-            ticketBy,
+            ticketBy:req.user._id,
             movieId,
             seats,
             parkingSlots,
@@ -49,16 +49,16 @@ const getTicket=async(req,res)=>{
 }
 const getTickets = async (req, res) => {
     try {
+        console.log("at getTickets");
         const userId = req.params.userId;
         // console.log("User ID:", userId);
         
         const tickets = await Ticket.find({ ticketBy: userId });
-        
+        console.log(tickets);
         if (tickets.length === 0) {
             return res.status(404).json("No tickets found for the user.");
         }
-        // console.log("hii");
-        res.status(200).json(tickets);
+       return res.status(200).json(tickets);
     } catch (error) {
         console.error("Error fetching tickets:", error);
         res.status(500).json({ error: "Internal server error" });

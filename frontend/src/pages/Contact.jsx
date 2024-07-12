@@ -59,7 +59,7 @@ function Contact() {
       .then((response) => {
          setData({name:"",email:"",subject:"",message:"" }); // Reset form data to empty strings
         console.log('Email sent successfully:', response);
-        // showToast("success","Email Sent Succesfully","message")
+        showToast("Success","Email Sent Succesfully","success")
       })
       .catch((error) => {
         showToast("error","Unable To Send Email","error")

@@ -10,13 +10,13 @@ import { Box, Button, Flex, Image, Spacer, Text, VStack } from '@chakra-ui/react
 
 const Success = () => {
   const [paymentInfo, setPaymentInfo] = useState(null);
-  const user = useRecoilState(userAtom)[0]; // Access user directly
+  const user = useRecoilState(userAtom)[0]; 
   const navigate = useNavigate();
-  const movie = useRecoilValue(movieAtom); // Access movie directly
-  const seats = useRecoilValue(seatAtom); // Access seats directly
-  const slots = useRecoilValue(slotAtom); // Access slots directly
+  const movie = useRecoilValue(movieAtom);
+  const seats = useRecoilValue(seatAtom); 
+  const slots = useRecoilValue(slotAtom); 
 
-  let total = (movie?.amount || 0) * seats.length + (movie?.parkingAmount || 0) * slots.length;
+  let total = (movie?.amount || 0) * seats.length + (slots ?(movie?.parkingAmount || 0) * slots.length:0);
   total = total + total * 0.1;
 
   const location = useLocation();
